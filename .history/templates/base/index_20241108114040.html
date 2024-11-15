@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Carros</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+ <style>
+    .card{
+        color: rgb(32, 33, 34);
+    }
+ </style>
+</head>
+  <body>
+    <h1>Carros</h1>
+    <div class="container">
+        <div class="row" id="cardCarros" >
+          <div class="col-md-6">
+            <div class="card" >
+                <img class="card-img-top" src="/Imagens/carro1.webp" alt="Card image">
+                <div class="card-img-overlay">
+                        <h4 class="card-title">Lamborghini</h4>
+                        <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal" onclick="carregaModal('lamborghini', 'O Lamborghini Aventador LP 700-4 é um carro esportivo de motor central produzido pela fabricante italiana Automobili Lamborghini, é o substituto do Murciélago. Ele é codificado como LB834 e LB835 para a versão roadster. O Aventador foi publicamente anunciado no Geneva Motor Show em 28 de Fevereiro de 2011',this)">Ver detalhes</a>
+                </div>
+              </div>            
+            </div>
+          <div class="col-md-6">
+            <div class="card" >
+                <img class="card-img-top" src="/Imagens/carro2.webp" alt="Card image">
+                <div class="card-img-overlay">
+                        <h4 class="card-title">Nissan GTR</h4>
+                        <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal" onclick="carregaModal('Nissan GTR', 'O Nissan GT-R é um modelo de automóvel superesportivo produzido pela Nissan, foi anunciado em 2001 com o objectivo de dar sequencia a marca GT-R (que surgiu na década de 1960 que fez sucesso com o Skyline), em 6 de Dezembro de 2007 foi oficialmente lançado no Japão, em 2008 chegou aos Estados Unidos, Canadá e Portugal, no resto do mundo apenas em 2009',this)">Ver detalhes</a>
+                </div>
+             </div>
+            
+          </div>
+          <div class="col-md-6">
+            <div class="card" >
+                <img class="card-img-top" src="Imagens/carro3.webp" alt="Card image">
+                <div class="card-img-overlay">
+                        <h4 class="card-title">Maserati</h4>
+                        <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal" onclick="carregaModal('Maserati', 'A marca foi fundada em 1º de dezembro de 1914[4] pelos irmãos Maserati - Ettore e Ernesto - com o objetivo de desenvolver carros, e especialmente motores, além de produzir velas de ignição. O logotipo do tridente, que identifica os carros Maserati até hoje, foi desenhado por Mario Maserati, o único artista dos quatro irmãos, inspirado na estátua de Netuno de Giambologna, localizada numa das praças mais importantes de Bologna', this)">Ver detalhes</a>
+                </div>
+             </div>
+          
+          </div>
+          <div class="col-md-6">
+            <div class="card" >
+                <img class="card-img-top" src="Imagens/carro4.webp" alt="Card image">
+                <div class="card-img-overlay">
+                        <h4 class="card-title">Bugatti</h4>
+                        <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal" onclick="carregaModal('Bugatti', 'Automobiles Ettore Bugatti foi um fabricante alemão e depois francês de automóveis de alto desempenho. A empresa foi fundada em 1909 na então cidade alemã de Molsheim, na Alsácia, pelo designer industrial italiano Ettore Bugatti. Os carros eram conhecidos por sua beleza de design e por suas muitas vitórias em corridas',this)">Ver detalhes</a>
+                    </div>
+             </div>
+          
+          </div>
+        </div>
+      </div>
+  
+      <!-- The Modal -->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title" id="mtitulo">Carro</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <!-- Modal body -->
+        <div class="modal-body" id="mdetalhe">
+          Informação do Carro
+        </div>
+        <img class="img-fluid" id="mImagem" src="...." alt="Card image">
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function carregaModal(titulo, detalhe, elemento){
+      document.getElementById("mtitulo").innerHTML=titulo;
+      document.getElementById("mdetalhe").innerHTML=detalhe;
+      document.getElementById("mImagem").src =elemento.parentNode.parentNode.firstElementChild.getAttribute("src")
+      console.log(elemento.parentNode.parentNode.firstElementChild.getAttribute("src"))
+    }   
+
+    const atualizarCarros = async () => {
+      let strHtml = ``
+      //alert("aaaa")
+      const response = await fetch('https://turma12r.alunos.esmonserrate.org/santiago/HTML/carros/public/api/carro1')
+      const lv = await response.json()
+      for (const artigo of lv) {
+        strHtml += `
+              <div class="col-md-6">
+                <div class="card" >
+                  <img class="card-img-top" src="${artigo.Foto}" alt="${artigo.Marca}">
+                  <div class="card-img-overlay">
+                    <h4 class="card-title">${artigo.Marca}</h4>
+                    <a href="#" class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#myModal"  onclick="carregaModal('${artigo.Marca}', '${artigo.Detalhes}', this)">Ver detalhes</a>
+                  </div>
+                </div>
+              </div>    
+                   `
+      }
+      document.getElementById("cardCarros").innerHTML = strHtml;
+    }
+
+      atualizarCarros();
+
+  </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>

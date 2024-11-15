@@ -1,0 +1,22 @@
+{
+    "carros": {
+        "0": {
+            "id": "1",
+            "Marca": "Ferrari",
+            "Detalhes": "F8",
+            "Foto": "https:\/\/www.motor24.pt\/files\/2019\/03\/1681733_Ferrari_F8_Tributo_4-800x533_c.jpg"
+        },
+        "2": {
+            "id": "3",
+            "Marca": "BMW",
+            "Detalhes": "i8 Roadster",
+            "Foto": "https:\/\/s2.glbimg.com\/YKLGT3NAkJ1PX-Lgo7qu1vqnL84=\/smart\/e.glbimg.com\/og\/ed\/f\/original\/2019\/12\/04\/gq101_motor_movidos-pela-paixao_02_bmw-i8-roadster.png"
+        },
+        "3": {
+            "id": "4",
+            "Marca": "Dodge charger",
+            "Detalhes": "1970 Black Dodge Charger R\/T with Supercharger",
+            "Foto": "https:\/\/ae01.alicdn.com\/kf\/S58d5d5456c204cb4affee7af1ef5fcf9v.jpg_960x960.jpg"
+        }
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "carros": [
+        {
+            "id": "2",
+            "Marca": "Nissan",
+            "Detalhes": "GTR_r",
+            "Foto": "https:\/\/www.razaoautomovel.com\\\/wp-content\\\/uploads\\\/2023\\\/04\\\/Nissan-Skyline-GT-R-R34-Velocidade-Furiosa-9.jpg_925x520_acf_cropped-925x520.jpg.webp"
+        },
+        {
+            "id": "3",
+            "Marca": "Anan\u00e1s",
+            "Detalhes": "Kumb",
+            "Foto": "https:\/\/img.freepik.com\/fotos-premium\/johan-ananas-carro-continental-deriva-imagem-ai-gerado-arte_882313-923.jpg"
+        }
+    ]
+}
